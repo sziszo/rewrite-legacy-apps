@@ -1,5 +1,6 @@
 package org.example.rewrite.app;
 
+import org.example.rewrite.java.recipes.UserLiteralFortyTwo;
 import org.openrewrite.*;
 import org.openrewrite.config.Environment;
 import org.openrewrite.internal.InMemoryLargeSourceSet;
@@ -30,7 +31,7 @@ public class RewriteApp {
         // put any rewrite recipe jars on this main method's runtime classpath
         // and either construct the recipe directly or via an Environment
         Environment environment = Environment.builder().scanRuntimeClasspath().build();
-        Recipe recipe = environment.activateRecipes("org.openrewrite.staticanalysis.CommonStaticAnalysis");
+        Recipe recipe = environment.activateRecipes("org.openrewrite.staticanalysis.CommonStaticAnalysis", UserLiteralFortyTwo.class.getName());
 
         // create a JavaParser instance with your classpath
         JavaParser javaParser = JavaParser.fromJavaVersion()
