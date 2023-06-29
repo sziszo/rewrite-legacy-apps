@@ -54,7 +54,7 @@ public class RewriteApp {
 
             for (Result result : results) {
                 // print diffs to the console
-                System.out.println(result.diff(projectDir));
+                LOGGER.info(result.diff(projectDir));
 
                 // or overwrite the file on disk with changes.
                 // Files.writeString(result.getAfter().getSourcePath(),
